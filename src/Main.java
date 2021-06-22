@@ -19,13 +19,14 @@ public class Main {
 
         if (bmi <19.0) {
             System.out.println("Untergewicht");
-        }else{
-            if (bmi>25){
-                System.out.println("Übergewicht");
-            } else{
-                System.out.println("Normalgewicht");
-            }
+        }else if (bmi>25) {
+            System.out.println("Übergewicht");
+        }else if(bmi >= 19 && bmi <=25){
+            System.out.println("Normalgewicht");
         }
+        /*} else{
+
+        }*/
 
 
         // Ausgabe
