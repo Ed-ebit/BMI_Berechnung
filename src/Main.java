@@ -12,21 +12,20 @@ public class Main {
         int gewicht =  Integer.parseInt(scanner.nextLine());
         //int gewicht=  scanner.nextInt();
         System.out.print("\nBitte Ihre Groesse in [m] : ");
-
         float groesse = (float)Double.parseDouble( scanner.nextLine());
-
         double bmi = gewicht/ (groesse * groesse);
 
-        if (bmi <19.0) {
-            System.out.println("Untergewicht");
-        }else if (bmi>25) {
-            System.out.println("Übergewicht");
-        }else if(bmi >= 19 && bmi <=25){
-            System.out.println("Normalgewicht");
-        }
-        /*} else{
-
-        }*/
+         short ergebnis= 1;//(short) (bmi<19.0 ?1 : bmi>25 ?3 : 2);
+         switch (ergebnis){
+             case 1 :
+                 System.out.println("Untergewicht");break;
+             case 2:
+                 System.out.println("Normalgewicht"); break;
+             case 3 :
+                 System.out.println("Übergewicht"); break;
+             default:
+                 System.out.println("Keine Ahnung ;-)"); break;
+         }
 
 
         // Ausgabe
