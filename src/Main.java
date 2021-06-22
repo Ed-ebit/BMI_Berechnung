@@ -23,17 +23,15 @@ public class Main {
             schrittGewicht = Float.parseFloat(eingabe);
         }
         double bmi=0;
-        for (float aktGewicht=gewicht ; // Anfangswert nur Einmal!!
-              bmi <= maxBmi  ;  // Laufbedingung bei jeden Durchlauf
-             aktGewicht= aktGewicht + schrittGewicht // Increment bei jedem Durchlauf
-             )
-        {
-             bmi = aktGewicht/ (groesse * groesse);
+        float aktGewicht=gewicht ;
+        while (bmi <= maxBmi){
+
+            bmi = aktGewicht/ (groesse * groesse);
             String ergebnis="Normalgewicht";
 
             switch ((short) (bmi<19.0 ?1 : bmi>25 ?3 : 2)){
                 case 1 :
-                   ergebnis= "Untergewicht";break;
+                    ergebnis= "Untergewicht";break;
                 case 2: break;
                 case 3 :
                     ergebnis="Übergewicht"; break;
@@ -41,8 +39,9 @@ public class Main {
                     ergebnis="Keine Ahnung ;-)"; break;
             }
             System.out.printf("%3.2f\t%2.2f\t%s\n",aktGewicht,bmi,ergebnis);
-
+            aktGewicht= aktGewicht + schrittGewicht;
         }
+
 
     }
 }
