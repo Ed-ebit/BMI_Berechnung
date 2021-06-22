@@ -17,6 +17,14 @@ public class Main {
 
         double bmi = gewicht/ (groesse * groesse);
 
+        if (bmi <19.0) System.out.println("Untergewicht"); // Bitte imer mit {}
+        if (bmi>25){
+            System.out.println("Übergewicht");
+        }
+        if (bmi >= 19.0 && bmi<=25){
+            System.out.println("Normalgewicht");
+        }
+
         // Ausgabe
         System.out.printf("Ihr BMI betraegt %.2f",  bmi);
 
