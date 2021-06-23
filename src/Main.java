@@ -4,13 +4,14 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in) ;
-        double bmi=0;
+        double[] bmiWerte=new double[1000];
         float aktGewicht=0;
         float gewicht=0;
         float groesse=0;
         float minBmi=0;
         float schrittGewicht=.5f;
         int anzWoche=0;
+
 
         System.out.println("BMI Rechner V 1.0");
         System.out.print("Bitte Ihren Namen : ");
@@ -34,7 +35,8 @@ public class Main {
         aktGewicht=gewicht ;
 
         scanner.close();
-        do {
+        double  bmi=0;
+       do {
             bmi = aktGewicht/ (groesse * groesse);
             String ergebnis=
                     bmi<19.0 ?
@@ -47,11 +49,16 @@ public class Main {
                     aktGewicht,
                     bmi,ergebnis);
             aktGewicht -=  schrittGewicht;
-            ++anzWoche; // anzWoche= anzWoche + 1 oder anzWoche += 1
+            //++anzWoche; // anzWoche= anzWoche + 1 oder anzWoche += 1
+           bmiWerte[anzWoche++]=bmi;
         }while(bmi >= minBmi);
 
         System.out.println("Der WunschBMi wird nach "+ (anzWoche -1)+" Wochen erreicht");
 
-
+        for (int i=0 ; i < bmiWerte.length ;i++){
+            if(bmiWerte[i] != 0.0) {
+                System.out.printf("%-10s\t %5.2f \n", i==0?"Start": "Woche "+i, bmiWerte[i]);
+            }
+        }
     }
 }
